@@ -11,8 +11,7 @@ import javax.inject.Singleton
 /**
  * Created by Asus on 9/12/2017.
  */
-@Singleton
-class BeaconReceiver @Inject constructor() : BroadcastReceiver() {
+class BeaconReceiver : BroadcastReceiver() {
 
     private val beacons: PublishSubject<Triple<Int, Int, Int>> = PublishSubject.create()
 

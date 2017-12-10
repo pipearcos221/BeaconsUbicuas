@@ -14,14 +14,17 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.backgroundColor
 import unicauca.movil.beaconsfinalubicuas.di.Injectable
 import unicauca.movil.beaconsfinalubicuas.receivers.BeaconReceiver
+import unicauca.movil.beaconsfinalubicuas.util.LifeDisposable
 import unicauca.movil.beaconsfinalubicuas.util.add
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(),Injectable {
 
+
     @Inject
     lateinit var beaconReceiver: BeaconReceiver
-    private var disposable: CompositeDisposable = CompositeDisposable()
+    val disposable:LifeDisposable = LifeDisposable(this)
+    @Inject
     lateinit var prefs: SharedPreferences
     private var baseMinor: Int = 0
 
@@ -29,8 +32,6 @@ class MainActivity : AppCompatActivity(),Injectable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        SystemRequirementsChecker.checkWithDefaultDialogs(this)
-        prefs = applicationContext.getSharedPreferences("beacon", 0)
         baseMinor = prefs.getInt("baseMinor", 0)
     }
 
@@ -48,18 +49,12 @@ class MainActivity : AppCompatActivity(),Injectable {
 
 
                     }
-//                    else if (beacon.third == 0){
-//                        Log.i("beacons123", "Salio de la region")
-//                        Toast.makeText(this, "Salio de la region", Toast.LENGTH_SHORT).show()
-//                        processRssi(beacon.third)
-//                    }
                 }
     }
 
     override fun onStop() {
         super.onStop()
         unregisterReceiver(beaconReceiver)
-        disposable.clear()
     }
 
     fun processRssi(rssi: Int) {
