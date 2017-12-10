@@ -8,7 +8,10 @@ import android.util.Log
 import com.estimote.coresdk.observation.region.beacon.BeaconRegion
 import com.estimote.coresdk.recognition.packets.Beacon
 import com.estimote.coresdk.service.BeaconManager
+import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import unicauca.movil.beaconsfinalubicuas.di.AppInjector
 import unicauca.movil.beaconsfinalubicuas.receivers.BeaconReceiver
 import javax.inject.Inject
 
@@ -16,14 +19,17 @@ import javax.inject.Inject
  * Created by Asus on 9/12/2017.
  */
 
-class App : Application(), BeaconManager.BeaconRangingListener, BeaconManager.BeaconMonitoringListener {
+class App : Application(), BeaconManager.BeaconRangingListener, BeaconManager.BeaconMonitoringListener, HasActivityInjector {
 
     @Inject
     lateinit var injector: DispatchingAndroidInjector<Activity>
 
+    override fun activityInjector(): AndroidInjector<Activity>
+            = injector
+
     override fun onCreate() {
         super.onCreate()
-
+        AppInjector.init(this)
         val manager = BeaconManager(this)
         manager.connect {
             manager.startMonitoring(BeaconRegion("pinturas", null,

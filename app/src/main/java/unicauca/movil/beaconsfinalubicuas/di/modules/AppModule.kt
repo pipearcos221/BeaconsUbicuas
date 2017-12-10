@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
+import unicauca.movil.beaconsfinalubicuas.receivers.BeaconReceiver
 import javax.inject.Singleton
 
 /**
@@ -21,5 +22,9 @@ class AppModule{
     @Provides
     fun providesPreferences(application: Application): SharedPreferences =
             application.getSharedPreferences("BeaconBall", 0)
+
+    @Singleton
+    @Provides
+    fun providesBeaconreceiver():BeaconReceiver = BeaconReceiver()
 
 }
