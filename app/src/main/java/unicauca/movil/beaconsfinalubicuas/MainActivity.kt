@@ -12,12 +12,15 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.backgroundColor
+import unicauca.movil.beaconsfinalubicuas.di.Injectable
 import unicauca.movil.beaconsfinalubicuas.receivers.BeaconReceiver
 import unicauca.movil.beaconsfinalubicuas.util.add
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),Injectable {
 
-    private val beaconReceiver: BeaconReceiver = BeaconReceiver()
+    @Inject
+    lateinit var beaconReceiver: BeaconReceiver
     private var disposable: CompositeDisposable = CompositeDisposable()
     lateinit var prefs: SharedPreferences
     private var baseMinor: Int = 0

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BeaconsFinalUbicuas.iml" filepath="$PROJECT_DIR$/BeaconsFinalUbicuas.iml" />
+      <module fileurl="file://D:\AndroidProjects\BeaconsUbicuas\BeaconsFinalUbicuas.iml" filepath="D:\AndroidProjects\BeaconsUbicuas\BeaconsFinalUbicuas.iml" />
+      <module fileurl="file://C:\Users\Asus\Desktop\BeaconsFinalUbicuas\BeaconsUbicuas.iml" filepath="C:\Users\Asus\Desktop\BeaconsFinalUbicuas\BeaconsUbicuas.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

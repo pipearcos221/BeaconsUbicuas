@@ -1,5 +1,6 @@
 package unicauca.movil.beaconsfinalubicuas
 
+import android.app.Activity
 import android.app.Application
 import android.content.Intent
 import android.content.SharedPreferences
@@ -7,7 +8,9 @@ import android.util.Log
 import com.estimote.coresdk.observation.region.beacon.BeaconRegion
 import com.estimote.coresdk.recognition.packets.Beacon
 import com.estimote.coresdk.service.BeaconManager
+import dagger.android.DispatchingAndroidInjector
 import unicauca.movil.beaconsfinalubicuas.receivers.BeaconReceiver
+import javax.inject.Inject
 
 /**
  * Created by Asus on 9/12/2017.
@@ -15,6 +18,8 @@ import unicauca.movil.beaconsfinalubicuas.receivers.BeaconReceiver
 
 class App : Application(), BeaconManager.BeaconRangingListener, BeaconManager.BeaconMonitoringListener {
 
+    @Inject
+    lateinit var injector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()
