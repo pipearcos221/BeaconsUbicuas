@@ -1,4 +1,4 @@
-package unicauca.movil.beaconsfinalubicuas
+package unicauca.movil.beaconsfinalubicuas.ui
 
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
@@ -7,6 +7,7 @@ import com.estimote.coresdk.common.requirements.SystemRequirementsChecker
 import com.jakewharton.rxbinding2.view.clicks
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
+import unicauca.movil.beaconsfinalubicuas.R
 import unicauca.movil.beaconsfinalubicuas.databinding.ActivityLoginBinding
 
 

@@ -1,4 +1,4 @@
-package unicauca.movil.beaconsfinalubicuas
+package unicauca.movil.beaconsfinalubicuas.ui
 
 import android.content.IntentFilter
 import android.content.SharedPreferences
@@ -7,15 +7,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.estimote.coresdk.common.requirements.SystemRequirementsChecker
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.backgroundColor
+import unicauca.movil.beaconsfinalubicuas.R
 import unicauca.movil.beaconsfinalubicuas.di.Injectable
 import unicauca.movil.beaconsfinalubicuas.receivers.BeaconReceiver
 import unicauca.movil.beaconsfinalubicuas.util.LifeDisposable
-import unicauca.movil.beaconsfinalubicuas.util.add
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(),Injectable {
