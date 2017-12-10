@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -20,9 +19,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding{
+        enabled = true
+    }
 }
 
 def anko_version = '0.10.1'
+def retrofit_version = '2.3.0'
+def dagger_version = '2.11'
+def arch_version = "1.0.0-rc1"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -38,7 +43,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
     implementation 'com.jakewharton.rxbinding2:rxbinding-kotlin:2.0.0'
 
+    // Hay que agregarlo para que no entre en conflicto con Dagger
     testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
@@ -46,11 +53,45 @@ dependencies {
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
 
     //Anko coroutines
-    compile "org.jetbrains.anko:anko-coroutines:$anko_version"
+    implementation "org.jetbrains.anko:anko-coroutines:$anko_version"
+
+    // Librerias de Dagger
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
 
     // Anko Layouts
     implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
+
     // sdk15, sdk19, sdk21, sdk23 are also available
     implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
     implementation 'com.android.support:design:26.1.0'
+
+    //socketio
+    implementation 'com.github.nkzawa:socket.io-client:0.3.0'
+
+    //Retrofit
+    implementation "com.google.code.gson:gson:2.8.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+
+    // Procesamiento de anotaciones para databinding, room y dagger
+    kapt "android.arch.persistence.room:compiler:$arch_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt 'com.android.databinding:compiler:3.0.1'
+
+    //Android Arch
+    implementation "android.arch.lifecycle:extensions:$arch_version"
+    kapt "android.arch.lifecycle:compiler:$arch_version"
+    implementation "android.arch.persistence.room:runtime:$arch_version"
+    implementation "android.arch.persistence.room:rxjava2:$arch_version"
 }
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
+
+

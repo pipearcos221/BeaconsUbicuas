@@ -5,12 +5,14 @@ import android.content.Context
 import android.content.Intent
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Created by Asus on 9/12/2017.
  */
-
-class BeaconReceiver : BroadcastReceiver() {
+@Singleton
+class BeaconReceiver @Inject constructor() : BroadcastReceiver() {
 
     private val beacons: PublishSubject<Triple<Int, Int, Int>> = PublishSubject.create()
 
