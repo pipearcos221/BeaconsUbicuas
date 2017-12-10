@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BeaconsFinalUbicuas</string>
+    <string name="register"><u>Registrar</u></string>
 </resources>
