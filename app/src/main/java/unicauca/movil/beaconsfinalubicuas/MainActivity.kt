@@ -59,13 +59,13 @@ class MainActivity : AppCompatActivity() {
         disposable.clear()
     }
 
-    fun processRssi(rssi: Int){
-        when(rssi){
-        in -75..-40 -> img.backgroundColor = Color.rgb(0,255,0)
-        in -95..-75 -> img.backgroundColor = Color.rgb(255, 156, 35)
-        else -> img.backgroundColor = Color.rgb(255,0,0)
+    fun processRssi(rssi: Int) {
+        when (rssi) {
+            in -75..-40 -> img.backgroundColor = Color.rgb(0, 255, 0)
+            in -95..-75 -> img.backgroundColor = Color.rgb(255, 156, 35)
+            else -> img.backgroundColor = Color.rgb(255, 0, 0)
 
-    }
+        }
     }
 
 }
