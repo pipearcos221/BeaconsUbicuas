@@ -1,6 +1,8 @@
 package unicauca.movil.beaconsfinalubicuas.di.modules
 
 import android.content.Context
+import com.github.nkzawa.socketio.client.IO
+import com.github.nkzawa.socketio.client.Socket
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -17,13 +19,19 @@ import javax.inject.Singleton
 class NetModule{
     @Provides
     @Singleton
-    fun provideRetrofit(context: Context): Retrofit = Retrofit.
+    fun provideRetrofit(): Retrofit = Retrofit.
             Builder()
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
                     .setDateFormat("dd/MM/yyyy")
                     .create()
             ))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
-            .baseUrl("https://192.168.0.12:3000/")
+            .baseUrl("http://192.168.0.12:3000/")
             .build()
+
+    @Provides
+    @Singleton
+    fun provideSocket(): Socket = IO.socket("http://192.168.0.12:3000")
+
+
 }

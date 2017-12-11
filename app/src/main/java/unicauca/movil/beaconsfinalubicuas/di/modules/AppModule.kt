@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
+import org.eclipse.paho.android.service.MqttAndroidClient
+import rx.mqtt.android.RxMqtt
 import unicauca.movil.beaconsfinalubicuas.receivers.BeaconReceiver
 import javax.inject.Singleton
 
@@ -27,4 +29,13 @@ class AppModule{
     @Provides
     fun providesBeaconreceiver():BeaconReceiver = BeaconReceiver()
 
+    @Singleton
+    @Provides
+    fun providesMqttAndroidClient(context: Context):MqttAndroidClient =RxMqtt.client(context, "tcp://iot.eclipse.org:1883")
+
+            /*
+    * val mqttAndroidCLient: MqttAndroidClient by lazy{
+        RxMqtt.client(applicationContext, URL)
+    }
+    * */
 }

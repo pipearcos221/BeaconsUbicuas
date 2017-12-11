@@ -1,4 +1,4 @@
-package unicauca.movil.beaconsfinalubicuas.ui
+package unicauca.movil.beaconsfinalubicuas.ui.login
 
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 import unicauca.movil.beaconsfinalubicuas.R
 import unicauca.movil.beaconsfinalubicuas.databinding.ActivityLoginBinding
+import unicauca.movil.beaconsfinalubicuas.ui.game.GameActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -24,6 +25,6 @@ class LoginActivity : AppCompatActivity() {
         super.onResume()
         SystemRequirementsChecker.checkWithDefaultDialogs(this)
         btnLogin.clicks()
-                .subscribe{startActivity<MainActivity>()}
+                .subscribe{startActivity<GameActivity>()}
     }
 }
