@@ -10,6 +10,7 @@
     <string name="usernameTxt">Nombre de usuario:</string>
     <string name="passwordTxt">Ingrese una contraseña:</string>
     <string name="add">Agregar</string>
+    <string name="empty_fields">hay campos vacios</string>
 </resources>
 
 

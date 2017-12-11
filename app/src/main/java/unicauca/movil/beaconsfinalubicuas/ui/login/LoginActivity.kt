@@ -19,6 +19,8 @@ import unicauca.movil.beaconsfinalubicuas.model.UserLogin
 import unicauca.movil.beaconsfinalubicuas.ui.RegisterActivity
 import unicauca.movil.beaconsfinalubicuas.ui.game.GameActivity
 import unicauca.movil.beaconsfinalubicuas.ui.seletTeam.SelectTeamActivity
+import unicauca.movil.beaconsfinalubicuas.util.buildViewModel
+import unicauca.movil.beaconsfinalubicuas.util.validateForm
 import javax.inject.Inject
 
 
@@ -26,7 +28,7 @@ class LoginActivity : AppCompatActivity(), Injectable {
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
-    lateinit var viewModel: LoginViewModel
+    val viewModel: LoginViewModel by lazy { buildViewModel(factory,LoginViewModel::class) }
     lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +41,8 @@ class LoginActivity : AppCompatActivity(), Injectable {
         SystemRequirementsChecker.checkWithDefaultDialogs(this)
 
         btnLogin.clicks()
-                .flatMap { viewModel.Login(UserLogin(username.toString(),password.toString())) }
+                .flatMap { validateForm(R.string.empty_fields,username.editText?.text.toString(),password.editText?.text.toString()) }
+                .flatMap { viewModel.Login(UserLogin(it[0],it[1])) }
                 .subscribeBy(
                         onNext = {
                             if (it.success){
@@ -47,6 +50,9 @@ class LoginActivity : AppCompatActivity(), Injectable {
                             }else{
                                 toast("Usuario o Contraseña incorrecto")
                             }
+                        },
+                        onError = {
+                            toast("error")
                         }
                 )
         register.clicks().

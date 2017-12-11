@@ -30,12 +30,12 @@ class NetModule{
                     .create()
             ))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
-            .baseUrl("http:// 192.168.100.205:3000/")
+            .baseUrl("http://192.168.0.12:3000/")
             .build()
 
     @Provides
     @Singleton
-    fun provideSocket(): Socket = IO.socket("http://192.168.100.205:3000")
+    fun provideSocket(): Socket = IO.socket("http://192.168.0.12:3000")
 
     @Provides
     @Singleton
