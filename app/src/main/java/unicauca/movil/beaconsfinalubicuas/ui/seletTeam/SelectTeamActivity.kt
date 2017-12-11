@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_select_team.*
 import org.jetbrains.anko.startActivity
 import unicauca.movil.beaconsfinalubicuas.R
 import unicauca.movil.beaconsfinalubicuas.di.Injectable
+import unicauca.movil.beaconsfinalubicuas.ui.teams.TeamsActivity
 import unicauca.movil.beaconsfinalubicuas.util.LifeDisposable
 import unicauca.movil.beaconsfinalubicuas.util.buildViewModel
 import javax.inject.Inject
@@ -26,12 +27,12 @@ class SelectTeamActivity : AppCompatActivity(),Injectable {
 
         red.clicks().subscribeBy(
                 onNext = {
-
+                    startActivity<TeamsActivity>()
                 }
         )
         blue.clicks().subscribeBy(
                 onNext = {
-
+                    startActivity<TeamsActivity>()
                 }
         )
 

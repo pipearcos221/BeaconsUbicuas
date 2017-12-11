@@ -13,16 +13,16 @@ import org.jetbrains.anko.toast
 
 import unicauca.movil.beaconsfinalubicuas.R
 import unicauca.movil.beaconsfinalubicuas.databinding.ActivityLoginBinding
+import unicauca.movil.beaconsfinalubicuas.di.Injectable
 
 import unicauca.movil.beaconsfinalubicuas.model.UserLogin
 import unicauca.movil.beaconsfinalubicuas.ui.RegisterActivity
 import unicauca.movil.beaconsfinalubicuas.ui.game.GameActivity
 import unicauca.movil.beaconsfinalubicuas.ui.seletTeam.SelectTeamActivity
-
 import javax.inject.Inject
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), Injectable {
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
@@ -49,7 +49,6 @@ class LoginActivity : AppCompatActivity() {
                             }
                         }
                 )
-
         register.clicks().
                 subscribe{startActivity<RegisterActivity>()}
     }
