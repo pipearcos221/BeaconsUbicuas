@@ -5,6 +5,11 @@
     <string name="http_404">Recurso no encontrado</string>
     <string name="http_401">Accion no autorizada</string>
     <string name="http_500">Error en el servidor</string>
+    <string name="nameTxt">Nombre completo:</string>
+    <string name="cedulaTxt">Numero de identificacion (C.C. o T.I.):</string>
+    <string name="usernameTxt">Nombre de usuario:</string>
+    <string name="passwordTxt">Ingrese una contraseña:</string>
+    <string name="add">Agregar</string>
 </resources>
 
 

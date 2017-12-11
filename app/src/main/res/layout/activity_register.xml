@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:padding="@dimen/small"
+        tools:context="unicauca.movil.beaconsfinalubicuas.ui.RegisterActivity">
+
+        <TextView
+            android:id="@+id/nameTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/nameTxt"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/usernameTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/usernameTxt"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cedula" />
+
+        <TextView
+            android:id="@+id/passwordTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/passwordTxt"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username" />
+
+        <TextView
+            android:id="@+id/cedulaTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/cedulaTxt"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintEnd_toEndOf="@+id/nameTxt"
+            app:layout_constraintStart_toStartOf="@+id/nameTxt"
+            app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
+
+        <EditText
+            android:id="@+id/cedula"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintEnd_toEndOf="@+id/cedulaTxt"
+            app:layout_constraintStart_toStartOf="@+id/cedulaTxt"
+            app:layout_constraintTop_toBottomOf="@+id/cedulaTxt" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintEnd_toEndOf="@+id/usernameTxt"
+            app:layout_constraintStart_toStartOf="@+id/usernameTxt"
+            app:layout_constraintTop_toBottomOf="@+id/usernameTxt" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTxt"
+            app:layout_constraintStart_toStartOf="@+id/passwordTxt"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTxt" />
+
+        <Button
+            android:id="@+id/button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginStart="70dp"
+            android:text="@string/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
+

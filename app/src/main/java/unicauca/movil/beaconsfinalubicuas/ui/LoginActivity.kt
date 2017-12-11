@@ -23,7 +23,11 @@ class LoginActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         SystemRequirementsChecker.checkWithDefaultDialogs(this)
+
         btnLogin.clicks()
                 .subscribe{startActivity<MainActivity>()}
+
+        register.clicks().
+                subscribe{startActivity<RegisterActivity>()}
     }
 }
