@@ -1,10 +1,11 @@
 package unicauca.movil.beaconsfinalubicuas.ui
 
-import `null`.databinding.ActivityRegisterBinding
+
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import unicauca.movil.beaconsfinalubicuas.R
+import unicauca.movil.beaconsfinalubicuas.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
 
