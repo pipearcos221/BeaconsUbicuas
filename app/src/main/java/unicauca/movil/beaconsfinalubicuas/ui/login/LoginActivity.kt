@@ -11,6 +11,7 @@ import unicauca.movil.beaconsfinalubicuas.R
 import unicauca.movil.beaconsfinalubicuas.databinding.ActivityLoginBinding
 import unicauca.movil.beaconsfinalubicuas.ui.RegisterActivity
 import unicauca.movil.beaconsfinalubicuas.ui.game.GameActivity
+import unicauca.movil.beaconsfinalubicuas.ui.seletTeam.SelectTeamActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -27,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         SystemRequirementsChecker.checkWithDefaultDialogs(this)
 
         btnLogin.clicks()
-                .subscribe{startActivity<GameActivity>()}
+                .subscribe{startActivity<SelectTeamActivity>()}
 
         register.clicks().
                 subscribe{startActivity<RegisterActivity>()}

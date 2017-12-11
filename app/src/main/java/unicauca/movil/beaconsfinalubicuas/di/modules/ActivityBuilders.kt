@@ -6,6 +6,7 @@ import unicauca.movil.beaconsfinalubicuas.ui.login.LoginActivity
 import unicauca.movil.beaconsfinalubicuas.ui.game.GameActivity
 import unicauca.movil.beaconsfinalubicuas.di.ActivityScope
 import unicauca.movil.beaconsfinalubicuas.ui.seletTeam.SelectTeamActivity
+import unicauca.movil.beaconsfinalubicuas.ui.teams.TeamsActivity
 
 /**
  * Created by jlbeltran94 on 10/12/2017.
@@ -24,5 +25,9 @@ abstract class ActivityBuilders{
     @ActivityScope
     @ContributesAndroidInjector
     abstract fun bindSelectTeamActivity(): SelectTeamActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector
+    abstract fun bindTeamsActivity(): TeamsActivity
 
 }

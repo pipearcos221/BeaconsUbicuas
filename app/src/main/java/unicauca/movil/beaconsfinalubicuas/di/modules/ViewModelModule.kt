@@ -9,6 +9,7 @@ import dagger.multibindings.IntoMap
 import unicauca.movil.beaconsfinalubicuas.ui.game.GameViewModel
 import unicauca.movil.beaconsfinalubicuas.ui.login.LoginViewModel
 import unicauca.movil.beaconsfinalubicuas.ui.seletTeam.SelectTeamViewModel
+import unicauca.movil.beaconsfinalubicuas.ui.teams.TeamsViewModel
 import unicauca.movil.beaconsfinalubicuas.util.AppViewModelFactory
 import kotlin.reflect.KClass
 
@@ -41,5 +42,10 @@ abstract class ViewModelModule{
     @IntoMap
     @ViewModelKey(SelectTeamViewModel::class)
     abstract fun bindSelectTeamViewModel(viewModel: SelectTeamViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TeamsViewModel::class)
+    abstract fun bindTeamsViewModel(viewModel: TeamsViewModel): ViewModel
 
 }
