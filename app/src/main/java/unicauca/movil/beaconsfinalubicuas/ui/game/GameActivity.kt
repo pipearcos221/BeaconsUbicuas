@@ -100,11 +100,11 @@ class GameActivity : AppCompatActivity(), Injectable {
     private fun processTag(idHex: String){
         when(idHex){
             BASE_A -> {
-                rxSendStatus("0D","1")
+                rxSendStatus("0D","2")
                 rxSendColor("0D",gameViewModel.teamColor)
             }
             BASE_B -> {
-                rxSendStatus("D0","1")
+                rxSendStatus("D0","2")
                 rxSendColor("D0",gameViewModel.teamColor)
             }
             else -> {

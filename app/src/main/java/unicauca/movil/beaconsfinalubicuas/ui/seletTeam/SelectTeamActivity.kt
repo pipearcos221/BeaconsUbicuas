@@ -23,6 +23,7 @@ class SelectTeamActivity : AppCompatActivity(),Injectable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = "Seleccione su equipo"
         setContentView(R.layout.activity_select_team)
 
         red.clicks().subscribeBy(
