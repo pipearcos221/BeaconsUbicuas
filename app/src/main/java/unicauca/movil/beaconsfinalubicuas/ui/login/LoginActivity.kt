@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 import unicauca.movil.beaconsfinalubicuas.R
 import unicauca.movil.beaconsfinalubicuas.databinding.ActivityLoginBinding
+import unicauca.movil.beaconsfinalubicuas.ui.RegisterActivity
 import unicauca.movil.beaconsfinalubicuas.ui.game.GameActivity
 
 
@@ -24,7 +25,11 @@ class LoginActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         SystemRequirementsChecker.checkWithDefaultDialogs(this)
+
         btnLogin.clicks()
                 .subscribe{startActivity<GameActivity>()}
+
+        register.clicks().
+                subscribe{startActivity<RegisterActivity>()}
     }
 }

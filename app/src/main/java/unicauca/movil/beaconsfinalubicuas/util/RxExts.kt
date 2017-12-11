@@ -12,7 +12,6 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import retrofit2.HttpException
 import unicauca.movil.beaconsfinalubicuas.R
-import unicauca.movil.beaconsfinalubicuas.net.ResponseData
 import java.net.SocketTimeoutException
 
 /**
@@ -70,12 +69,6 @@ fun <T> Observable<T>.subscribeByAction(onNext: (T) -> Unit, onHttpError: (resSt
         }
                 .retry()
                 .subscribe(onNext, {})
-
-fun <T> validateResponse(res: ResponseData<T>) = Observable.create<T> {
-    if (res.success) it.onNext(res.data)
-
-    else throw Throwable(res.err)
-}
 
 //Extension para validar errores con observables
 

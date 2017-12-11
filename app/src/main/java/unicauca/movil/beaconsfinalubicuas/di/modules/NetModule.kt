@@ -6,10 +6,14 @@ import com.github.nkzawa.socketio.client.Socket
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import unicauca.movil.beaconsfinalubicuas.model.LoginResponse
+import unicauca.movil.beaconsfinalubicuas.model.UserLogin
+import unicauca.movil.beaconsfinalubicuas.net.UserClient
 import javax.inject.Singleton
 
 /**
@@ -33,5 +37,9 @@ class NetModule{
     @Singleton
     fun provideSocket(): Socket = IO.socket("http://192.168.0.12:3000")
 
+    @Provides
+    @Singleton
+    fun provideUserClient(retrofit: Retrofit): UserClient =
+            retrofit.create(UserClient::class.java)
 
 }
